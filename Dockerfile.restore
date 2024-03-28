@@ -1,0 +1,7 @@
+FROM postgres:latest
+RUN mkdir /restore
+WORKDIR /restore
+COPY aws.env /restore/env_vars
+COPY restore.sh /restore
+RUN chmod 755 /restore/restore.sh
+ENTRYPOINT [ "/restore/restore.sh" ]

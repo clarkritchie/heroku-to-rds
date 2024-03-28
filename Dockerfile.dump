@@ -1,0 +1,7 @@
+FROM postgres:latest
+RUN mkdir /dump
+WORKDIR /dump
+COPY heroku.env /dump/env_vars
+COPY dump.sh /dump
+RUN chmod 755 /dump/dump.sh 
+ENTRYPOINT [ "/dump/dump.sh" ]

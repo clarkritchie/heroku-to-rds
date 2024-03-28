@@ -1,1 +1,5 @@
 **/*.env
+copy.sh
+**/.DS_Store
+**data
+**tmp
