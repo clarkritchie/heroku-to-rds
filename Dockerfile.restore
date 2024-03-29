@@ -1,7 +1,10 @@
 FROM postgres:latest
 RUN mkdir /restore
 WORKDIR /restore
+RUN apt update && apt-get install -y vim procps
 COPY aws.env /restore/env_vars
 COPY restore.sh /restore
+COPY confirm.sh /restore
 RUN chmod 755 /restore/restore.sh
-ENTRYPOINT [ "/restore/restore.sh" ]
+RUN chmod 755 /restore/confirm.sh
+CMD ['tail', '-f', '/dev/null']

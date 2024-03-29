@@ -3,5 +3,7 @@ RUN mkdir /dump
 WORKDIR /dump
 COPY heroku.env /dump/env_vars
 COPY dump.sh /dump
+COPY confirm.sh /dump
 RUN chmod 755 /dump/dump.sh 
+RUN chmod 755 /dump/confirm.sh 
 ENTRYPOINT [ "/dump/dump.sh" ]
